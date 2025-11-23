@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f112a34-bfde-4ff3-a628-88e38e676b13" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/PythonProjectdaily.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data anlysis.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/gold_2000_2025.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/importing data.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +23,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
+  "associatedIndex": 3
 }]]></component>
   <component name="ProjectId" id="35sBpcvzLl0pUZIkAr6B4jcp9WD" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -53,7 +46,7 @@
 }]]></component>
   <component name="RunManager">
     <configuration default="true" type="DjangoTestsConfigurationType">
-      <module name="SafeHavenAnalysisdaily" />
+      <module name="SafeHavenAnalysis-daily" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -74,7 +67,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="SafeHavenAnalysisdaily" />
+      <module name="SafeHavenAnalysis-daily" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -97,7 +90,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="Python.FlaskServer">
-      <module name="SafeHavenAnalysisdaily" />
+      <module name="SafeHavenAnalysis-daily" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -111,7 +104,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="SafeHavenAnalysisdaily" />
+      <module name="SafeHavenAnalysis-daily" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -124,7 +117,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docs" factoryName="Docutils task">
-      <module name="SafeHavenAnalysisdaily" />
+      <module name="SafeHavenAnalysis-daily" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -141,7 +134,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docs" factoryName="Sphinx task">
-      <module name="SafeHavenAnalysisdaily" />
+      <module name="SafeHavenAnalysis-daily" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -158,7 +151,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Autodetect">
-      <module name="SafeHavenAnalysisdaily" />
+      <module name="SafeHavenAnalysis-daily" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -174,7 +167,7 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
-      <module name="SafeHavenAnalysisdaily" />
+      <module name="SafeHavenAnalysis-daily" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -210,7 +203,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1763889083068</updated>
-      <workItem from="1763889084233" duration="10425000" />
+      <workItem from="1763889084233" duration="13267000" />
     </task>
     <servers />
   </component>

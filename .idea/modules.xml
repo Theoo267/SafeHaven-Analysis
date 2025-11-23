@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/SafeHavenAnalysisdaily.iml" filepath="$PROJECT_DIR$/.idea/SafeHavenAnalysisdaily.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SafeHavenAnalysis-daily.iml" filepath="$PROJECT_DIR$/.idea/SafeHavenAnalysis-daily.iml" />
     </modules>
   </component>
 </project>

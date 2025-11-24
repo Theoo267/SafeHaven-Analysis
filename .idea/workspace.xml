@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f112a34-bfde-4ff3-a628-88e38e676b13" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="4f112a34-bfde-4ff3-a628-88e38e676b13" name="Changes" comment="Update README structure and test commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data anlysis.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/data anlysis.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/merged_daily_returns.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/merged_daily_returns.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/importing data.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/importing data.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +25,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Theoo267"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Theoo267/SafeHaven-Analysis.git",
+    "accountId": "2b8d828c-af00-454e-8fd9-e723315c2626"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 3
 }]]></component>
@@ -203,11 +218,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1763889083068</updated>
-      <workItem from="1763889084233" duration="13267000" />
+      <workItem from="1763889084233" duration="20127000" />
     </task>
+    <task id="LOCAL-00001" summary="Update README structure and test commit">
+      <option name="closed" value="true" />
+      <created>1763910899160</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1763910899160</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update README structure and test commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update README structure and test commit" />
   </component>
 </project>

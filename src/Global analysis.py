@@ -24,7 +24,7 @@ pd.set_option('display.expand_frame_repr', False)
 # ===============================================================
 
 # Load the merged daily dataset
-data = pd.read_csv("data/merged_daily_data.csv")
+data = pd.read_csv("../data/merged_daily_data.csv")
 data["Date"] = pd.to_datetime(data["Date"])
 data = data.set_index("Date")
 
@@ -103,7 +103,7 @@ plt.show()
 # ===============================================================
 
 # Load corrected daily returns
-returns = pd.read_csv("data/merged_daily_returns.csv")
+returns = pd.read_csv("../data/merged_daily_returns.csv")
 returns["Date"] = pd.to_datetime(returns["Date"])
 returns = returns.set_index("Date").dropna()
 

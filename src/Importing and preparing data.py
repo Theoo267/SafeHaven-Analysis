@@ -11,8 +11,13 @@ import yfinance as yf
 import datetime
 import matplotlib.pyplot as plt
 
+pd.set_option('display.max_columns', None)
+pd.set_option('display.width', None)
+pd.set_option('display.max_colwidth', None)
+pd.set_option('display.expand_frame_repr', False)
+
 # Create /data folder if needed
-os.makedirs("../data", exist_ok=True)
+os.makedirs("data", exist_ok=True)
 
 # Date interval for all downloaded datasets
 start = datetime.datetime(2000, 9, 1)
@@ -175,11 +180,11 @@ def load_daily(path, rename_dict=None):
     return df
 
 # Load the 5 datasets
-gold  = load_daily("../data/gold_2000_2025.csv", {"Gold": "Gold"})
-vix   = load_daily("../data/vix_2000_2025.csv", {"VIX": "VIX"})
-dxy   = load_daily("../data/dollar_index_2000_2025.csv", {"Dollar_Index": "Dollar_Index"})
-sp500 = load_daily("../data/sp500_2000_2025.csv", {"SP500": "SP500"})
-us10y = load_daily("../data/us10y_2000_2025.csv", {"US10Y": "US10Y"})
+gold  = load_daily("data/gold_2000_2025.csv", {"Gold": "Gold"})
+vix   = load_daily("data/vix_2000_2025.csv", {"VIX": "VIX"})
+dxy   = load_daily("data/dollar_index_2000_2025.csv", {"Dollar_Index": "Dollar_Index"})
+sp500 = load_daily("data/sp500_2000_2025.csv", {"SP500": "SP500"})
+us10y = load_daily("data/us10y_2000_2025.csv", {"US10Y": "US10Y"})
 
 # Date coverage checking
 for name, df in [
@@ -210,7 +215,7 @@ print("\n🎉 Merged file saved : data/merged_daily_data.csv")
 # ===============================================================
 
 # Load merged dataset
-data = pd.read_csv("../data/merged_daily_data.csv")
+data = pd.read_csv("data/merged_daily_data.csv")
 data["Date"] = pd.to_datetime(data["Date"])
 data = data.set_index("Date")
 

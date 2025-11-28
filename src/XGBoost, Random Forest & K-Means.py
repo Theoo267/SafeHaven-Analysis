@@ -26,7 +26,7 @@ pd.set_option('display.expand_frame_repr', True)
 # 4.1 LOAD DATA
 # =============================================================================
 
-df = pd.read_csv("../data/merged_daily_returns.csv", parse_dates=['Date']).set_index('Date')
+df = pd.read_csv("data/merged_daily_returns.csv", parse_dates=['Date']).set_index('Date')
 
 
 # =============================================================================

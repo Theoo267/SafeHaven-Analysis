@@ -12,7 +12,7 @@ import seaborn as sns
 
 plt.style.use("default")
 
-# Pandas display options (Jupyter-like)
+# Pandas display options
 pd.set_option('display.max_columns', None)
 pd.set_option('display.width', None)
 pd.set_option('display.max_colwidth', None)
@@ -20,11 +20,11 @@ pd.set_option('display.expand_frame_repr', False)
 
 
 # ===============================================================
-# 1) 📊 DESCRIPTIVE ANALYSIS: MEANS, VARIANCES & CORRELATIONS
+# 1) DESCRIPTIVE ANALYSIS: MEANS, VARIANCES & CORRELATIONS
 # ===============================================================
 
 # Load the merged daily dataset
-data = pd.read_csv("../data/merged_daily_data.csv")
+data = pd.read_csv("data/merged_daily_data.csv")
 data["Date"] = pd.to_datetime(data["Date"])
 data = data.set_index("Date")
 
@@ -99,11 +99,11 @@ plt.show()
 
 
 # ===============================================================
-# 3) 📉 CRISIS DESCRIPTIVE ANALYSIS (RETURNS)
+# 3) CRISIS DESCRIPTIVE ANALYSIS (RETURNS)
 # ===============================================================
 
 # Load corrected daily returns
-returns = pd.read_csv("../data/merged_daily_returns.csv")
+returns = pd.read_csv("data/merged_daily_returns.csv")
 returns["Date"] = pd.to_datetime(returns["Date"])
 returns = returns.set_index("Date").dropna()
 
@@ -151,7 +151,7 @@ print(crisis_summary.round(3).to_string())
 
 
 # ===============================================================
-# 4) 📈 CUMULATIVE GROWTH CHARTS (Gold + SP500 + DXY)
+# 4) CUMULATIVE GROWTH CHARTS (Gold + SP500 + DXY)
 # ===============================================================
 
 # Cumulative growth function

@@ -185,7 +185,7 @@ print(safehaven_table.round(4))
 
 
 # ===============================================================
-# 4) 🎨 SCATTERPLOTS — PERFORMANCE DURING EXTREME S&P500 DECLINES
+# 4) SCATTERPLOTS — PERFORMANCE DURING EXTREME S&P500 DECLINES
 # ===============================================================
 
 # Clean again for safety
@@ -283,3 +283,63 @@ plt.legend(fontsize=12)
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.show()
+
+
+# ===============================================================
+# 5) 📝 SHORT SUMMARY — Hedge & Safe Haven (Compact Version)
+# ===============================================================
+
+print("\n===============================================================")
+print("📝 SHORT SUMMARY — Hedge & Safe Haven Interpretation")
+print("===============================================================\n")
+
+# ------- 1) Hedge Summary (Global Betas) -------
+print("➡️ Hedge (Global OLS):")
+
+for _, r in global_reg_table.iterrows():
+    beta = r["Beta_SP500"]
+    asset = r["Asset"]
+
+    if beta < 0:
+        status = "Hedge"
+    elif abs(beta) < 0.02:
+        status = "Weak/Neutral"
+    else:
+        status = "Not a hedge"
+
+    print(f"• {asset}: {status} (β = {beta:.4f})")
+
+# ------- 2) Safe Haven Summary (Quantile Betas) -------
+print("\n➡️ Safe Haven (Quantile Regressions):")
+
+for asset in safehaven_table["Asset"].unique():
+    sub = safehaven_table[safehaven_table["Asset"] == asset]
+    negative_extremes = (sub["β extreme (added)"] < 0).sum()
+
+    if negative_extremes >= 2:
+        status = "Safe haven"
+    elif negative_extremes == 1:
+        status = "Partial safe haven"
+    else:
+        status = "Not a safe haven"
+
+    print(f"• {asset}: {status} (negative extreme betas in {negative_extremes}/3 quantiles)")
+
+# ------- 3) Crisis Summary (OLS by Crisis) -------
+print("\n➡️ Crisis Protection (Crisis Betas):")
+
+for asset in crisis_reg_table["Asset"].unique():
+    sub = crisis_reg_table[crisis_reg_table["Asset"] == asset]
+    neg = (sub["Beta_SP500"] < 0).sum()
+    total = len(sub)
+
+    if neg >= 3:
+        status = "Strong protection"
+    elif neg >= 1:
+        status = "Occasional protection"
+    else:
+        status = "No protection"
+
+    print(f"• {asset}: {status} ({neg}/{total} crises with β < 0)")
+
+print("\n===============================================================\n")

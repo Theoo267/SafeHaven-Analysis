@@ -1,0 +1,13 @@
+Asset,Crisis,Beta_SP500,Pvalue_SP500,R_squared
+Dollar Index (DXY),COVID19_Shock,-0.0044,0.743,0.0005
+Dollar Index (DXY),Euro_Debt_Crisis,-0.2261,0.0,0.2698
+Dollar Index (DXY),Global_Financial_Crisis,-0.0409,0.0074,0.0189
+Dollar Index (DXY),Ukraine_Inflation,-0.179,0.0,0.1774
+Gold,COVID19_Shock,0.1156,0.0044,0.0347
+Gold,Euro_Debt_Crisis,0.0462,0.2491,0.0024
+Gold,Global_Financial_Crisis,-0.0477,0.2303,0.0038
+Gold,Ukraine_Inflation,0.0562,0.0896,0.0058
+US 10Y Treasury,COVID19_Shock,-1.132,0.0,0.1858
+US 10Y Treasury,Euro_Debt_Crisis,-2.847,0.0,0.3196
+US 10Y Treasury,Global_Financial_Crisis,-1.4153,0.0,0.1512
+US 10Y Treasury,Ukraine_Inflation,0.7689,0.0057,0.0152

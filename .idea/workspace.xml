@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f112a34-bfde-4ff3-a628-88e38e676b13" name="Changes" comment="create new files">
+    <list default="true" id="4f112a34-bfde-4ff3-a628-88e38e676b13" name="Changes" comment="adding LSTM">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data analysis Linéar Regression.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/data analysis Linéar Regression.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data anlysis ML.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/data anlysis ML.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/importing data.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/importing data.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Global analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Global analysis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Importing and preparing data.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Importing and preparing data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Linear Regression.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Linear Regression.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/XGBoost, Random Forest &amp; K-Means.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/XGBoost, Random Forest &amp; K-Means.py" afterDir="false" />
@@ -81,7 +78,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.XGBoost, Random Forest &amp; K-Means">
+  <component name="RunManager" selected="Python.Linear Regression">
     <configuration name="Global analysis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SafeHavenAnalysis-daily" />
       <option name="ENV_FILES" value="" />
@@ -176,8 +173,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.XGBoost, Random Forest &amp; K-Means" />
         <item itemvalue="Python.Linear Regression" />
+        <item itemvalue="Python.XGBoost, Random Forest &amp; K-Means" />
         <item itemvalue="Python.Global analysis" />
         <item itemvalue="Python.Importing and preparing data" />
       </list>
@@ -201,7 +198,7 @@
       <updated>1763889083068</updated>
       <workItem from="1763889084233" duration="38254000" />
       <workItem from="1764077030328" duration="14016000" />
-      <workItem from="1764146957935" duration="47134000" />
+      <workItem from="1764146957935" duration="52584000" />
     </task>
     <task id="LOCAL-00001" summary="Update README structure and test commit">
       <option name="closed" value="true" />
@@ -291,7 +288,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764620396185</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="adding LSTM">
+      <option name="closed" value="true" />
+      <created>1764755320116</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1764755320116</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,12 +312,13 @@
     <MESSAGE value="error resolution in code" />
     <MESSAGE value="adding some analysis features" />
     <MESSAGE value="create new files" />
-    <option name="LAST_COMMIT_MESSAGE" value="create new files" />
+    <MESSAGE value="adding LSTM" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding LSTM" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$Linear_Regression.coverage" NAME="Linear Regression Coverage Results" MODIFIED="1764620254837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$XGBoost__Random_Forest___K_Means.coverage" NAME="XGBoost, Random Forest &amp; K-Means Coverage Results" MODIFIED="1764754267537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$Importing_and_preparing_data.coverage" NAME="Importing and preparing data Coverage Results" MODIFIED="1764358350935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$data_Analysis_Linear_Regression.coverage" NAME="Global analysis Coverage Results" MODIFIED="1764599127219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$XGBoost__Random_Forest___K_Means.coverage" NAME="XGBoost, Random Forest &amp; K-Means Coverage Results" MODIFIED="1764760108955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$Linear_Regression.coverage" NAME="Linear Regression Coverage Results" MODIFIED="1764760454515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$Importing_and_preparing_data.coverage" NAME="Importing and preparing data Coverage Results" MODIFIED="1764759812543" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$data_Analysis_Linear_Regression.coverage" NAME="Global analysis Coverage Results" MODIFIED="1764759889447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

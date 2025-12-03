@@ -9,8 +9,11 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
 plt.style.use("default")
+os.makedirs("results", exist_ok=True)
+
 
 # Pandas display options
 pd.set_option('display.max_columns', None)
@@ -37,22 +40,24 @@ desc_stats = pd.DataFrame({
     "Variance": data[cols].var()
 })
 
-print("\n📊 DESCRIPTIVE STATISTICS (2000–2025)\n")
+print("\nDESCRIPTIVE STATISTICS (2000–2025)\n")
 print(desc_stats.round(4))
+desc_stats.to_csv("results/descriptive_stats.csv")
 
 # Correlation heatmap
 plt.figure(figsize=(10,6))
 sns.heatmap(data[cols].corr(), annot=True, cmap="coolwarm", fmt=".2f")
 plt.title("Correlation Matrix (2000–2025)")
+plt.savefig("results/correlation_matrix.png", dpi=200)
 plt.show()
 
 
 # ===============================================================
-# 2) 📈 VIX ANALYSIS & STRESS PERIOD DETECTION
+# 2) VIX ANALYSIS & STRESS PERIOD DETECTION
 # ===============================================================
 
 # Verify that the VIX column exists
-assert "VIX" in data.columns, "❌ VIX column not found in merged_daily_data.csv"
+assert "VIX" in data.columns, "VIX column not found in merged_daily_data.csv"
 
 vix = data["VIX"]
 
@@ -95,6 +100,7 @@ plt.title("Stress Detection via VIX (2000–2025)")
 plt.ylabel("VIX Level")
 plt.legend(loc="upper left", fontsize=9)
 plt.grid(True)
+plt.savefig("results/vix_stress_detection.png", dpi=200)
 plt.show()
 
 
@@ -146,9 +152,9 @@ crisis_summary = pd.DataFrame(
     ]
 ).set_index("Crisis")
 
-print("\n📉 FINAL CRISIS TABLE (Daily Returns)\n")
+print("\nFINAL CRISIS TABLE (Daily Returns)\n")
 print(crisis_summary.round(3).to_string())
-
+crisis_summary.to_csv("results/crisis_summary.csv")
 
 # ===============================================================
 # 4) CUMULATIVE GROWTH CHARTS (Gold + SP500 + DXY)
@@ -176,4 +182,5 @@ for ax, (crisis, (start, end)) in zip(axes, crises.items()):
     ax.legend()
 
 plt.tight_layout()
+plt.savefig("results/cumulative_growth_crises.png", dpi=200)
 plt.show()

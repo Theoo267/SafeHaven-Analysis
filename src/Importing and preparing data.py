@@ -16,8 +16,9 @@ pd.set_option('display.width', None)
 pd.set_option('display.max_colwidth', None)
 pd.set_option('display.expand_frame_repr', False)
 
-# Create /data folder if needed
 os.makedirs("data", exist_ok=True)
+os.makedirs("results", exist_ok=True)
+
 
 # Date interval for all downloaded datasets
 start = datetime.datetime(2000, 9, 1)
@@ -38,7 +39,7 @@ gold = gold.sort_values(by="Date")
 gold["Date"] = pd.to_datetime(gold["Date"])
 gold.to_csv("data/gold_2000_2025.csv", index=False)
 
-print("✅ GOLD data recorded : data/gold_2000_2025.csv")
+print("GOLD data recorded : data/gold_2000_2025.csv")
 
 
 # ---------------------------
@@ -51,7 +52,7 @@ sp500 = sp500.sort_values(by="Date")
 sp500["Date"] = pd.to_datetime(sp500["Date"])
 sp500.to_csv("data/sp500_2000_2025.csv", index=False)
 
-print("✅ S&P500 data recorded : data/sp500_2000_2025.csv")
+print("S&P500 data recorded : data/sp500_2000_2025.csv")
 
 
 # ---------------------------
@@ -64,7 +65,7 @@ dxy = dxy.sort_values(by="Date")
 dxy["Date"] = pd.to_datetime(dxy["Date"])
 dxy.to_csv("data/dollar_index_2000_2025.csv", index=False)
 
-print("✅ Dollar Index data recorded : data/dollar_index_2000_2025.csv")
+print("Dollar Index data recorded : data/dollar_index_2000_2025.csv")
 
 
 # ---------------------------
@@ -77,7 +78,7 @@ vix = vix.sort_values(by="Date")
 vix["Date"] = pd.to_datetime(vix["Date"])
 vix.to_csv("data/vix_2000_2025.csv", index=False)
 
-print("✅ VIX data recorded : data/vix_2000_2025.csv")
+print("VIX data recorded : data/vix_2000_2025.csv")
 
 
 # ---------------------------
@@ -90,7 +91,7 @@ tnx = tnx.sort_values(by="Date")
 tnx["Date"] = pd.to_datetime(tnx["Date"])
 tnx.to_csv("data/us10y_2000_2025.csv", index=False)
 
-print("✅ US 10Y Yield data recorded : data/us10y_2000_2025.csv")
+print("US 10Y Yield data recorded : data/us10y_2000_2025.csv")
 
 
 # ===============================================================
@@ -152,6 +153,7 @@ for (title, path), ax in zip(datasets, axes.flat):
     ax.grid(True)
 
 plt.tight_layout(rect=[0, 0, 1, 0.96])
+plt.savefig("results/economic_indicators_2000_2025.png", dpi=200)
 plt.show()
 
 
@@ -203,7 +205,7 @@ print(merged.head())
 
 # Save merged dataset
 merged.to_csv("data/merged_daily_data.csv", index=False)
-print("\n🎉 Merged file saved : data/merged_daily_data.csv")
+print("\nMerged file saved : data/merged_daily_data.csv")
 
 
 # ===============================================================
@@ -230,4 +232,4 @@ returns = data.dropna()
 
 # 4) Save returns file
 returns.to_csv("data/merged_daily_returns.csv")
-print("✔ New return file created with correct US10Y transformation.")
+print("return file created")

@@ -9,7 +9,9 @@ import pandas as pd
 import statsmodels.api as sm
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
+os.makedirs("results", exist_ok=True)
 plt.style.use("default")
 
 pd.set_option('display.max_columns', None)
@@ -25,7 +27,7 @@ returns = returns.set_index("Date").dropna()
 
 
 # ===============================================================
-# 1) 📊 GLOBAL LINEAR REGRESSION (HEDGE TEST)
+# 1) GLOBAL LINEAR REGRESSION (HEDGE TEST)
 # ===============================================================
 
 # List of assets to analyze
@@ -65,13 +67,13 @@ global_reg_table = pd.DataFrame(
     columns=["Asset", "Beta_SP500", "Pvalue_SP500", "R_squared"]
 )
 
-print("\n📊 GLOBAL REGRESSION — Hedge Test (Corrected)\n")
+print("\nGLOBAL REGRESSION — Hedge Test (Corrected)\n")
 print(global_reg_table.round(4))
-
+global_reg_table.to_csv("results/global_regression_table.csv", index=False)
 
 
 # ===============================================================
-# 2) 📉 LINEAR REGRESSION BY CRISIS PERIODS (vs S&P 500 only)
+# 2) LINEAR REGRESSION BY CRISIS PERIODS
 # ===============================================================
 
 # Crisis windows (exact dates used in your analysis)
@@ -123,13 +125,13 @@ crisis_reg_table = pd.DataFrame(
 
 crisis_reg_table = crisis_reg_table.sort_values(["Asset", "Crisis"]).reset_index(drop=True)
 
-print("\n📉 CRISIS LINEAR REGRESSIONS — Behavior During Crises (vs S&P 500 only)\n")
+print("\nCRISIS LINEAR REGRESSIONS — Behavior During Crises (vs S&P 500)\n")
 print(crisis_reg_table.round(4))
-
+crisis_reg_table.to_csv("results/crisis_regression_table.csv", index=False)
 
 
 # ===============================================================
-# 3) 🟦 SAFE HAVEN TEST — QUANTILE REGRESSIONS (Baur & Lucey 2010)
+# 3) SAFE HAVEN TEST — QUANTILE REGRESSIONS (Baur & Lucey 2010)
 # ===============================================================
 
 # Assets to test
@@ -179,9 +181,9 @@ for asset_name, y_col in assets.items():
 
 # Final table
 safehaven_table = pd.DataFrame(rows)
-print("\n🟦 SAFE HAVEN TEST – Quantile approach (Baur & Lucey 2010)\n")
+print("\nSAFE HAVEN TEST – Quantile approach (Baur & Lucey 2010)\n")
 print(safehaven_table.round(4))
-
+safehaven_table.to_csv("results/safe_haven_table.csv", index=False)
 
 
 # ===============================================================
@@ -224,6 +226,7 @@ plt.title('Gold vs S&P 500 – Extreme Crash Behavior (2000–2025)', fontsize=1
 plt.legend(fontsize=12)
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
+plt.savefig("results/scatter_gold_vs_sp500.png", dpi=200)
 plt.show()
 
 
@@ -253,6 +256,7 @@ plt.title('Dollar Index vs S&P 500 – Flight-to-Safety Behavior', fontsize=15)
 plt.legend(fontsize=12)
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
+plt.savefig("results/scatter_dxy_vs_sp500.png", dpi=200)
 plt.show()
 
 
@@ -282,6 +286,7 @@ plt.title('US 10Y Treasury vs S&P 500 – Ultimate Safe Haven', fontsize=15)
 plt.legend(fontsize=12)
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
+plt.savefig("results/scatter_us10y_vs_sp500.png", dpi=200)
 plt.show()
 
 
@@ -290,11 +295,11 @@ plt.show()
 # ===============================================================
 
 print("\n===============================================================")
-print("📝 SHORT SUMMARY — Hedge & Safe Haven Interpretation")
+print("SHORT SUMMARY — Hedge & Safe Haven Interpretation")
 print("===============================================================\n")
 
 # ------- 1) Hedge Summary (Global Betas) -------
-print("➡️ Hedge (Global OLS):")
+print("➡Hedge (Global OLS):")
 
 for _, r in global_reg_table.iterrows():
     beta = r["Beta_SP500"]
@@ -310,7 +315,7 @@ for _, r in global_reg_table.iterrows():
     print(f"• {asset}: {status} (β = {beta:.4f})")
 
 # ------- 2) Safe Haven Summary (Quantile Betas) -------
-print("\n➡️ Safe Haven (Quantile Regressions):")
+print("\n➡Safe Haven (Quantile Regressions):")
 
 for asset in safehaven_table["Asset"].unique():
     sub = safehaven_table[safehaven_table["Asset"] == asset]
@@ -326,7 +331,7 @@ for asset in safehaven_table["Asset"].unique():
     print(f"• {asset}: {status} (negative extreme betas in {negative_extremes}/3 quantiles)")
 
 # ------- 3) Crisis Summary (OLS by Crisis) -------
-print("\n➡️ Crisis Protection (Crisis Betas):")
+print("\n➡Crisis Protection (Crisis Betas):")
 
 for asset in crisis_reg_table["Asset"].unique():
     sub = crisis_reg_table[crisis_reg_table["Asset"] == asset]

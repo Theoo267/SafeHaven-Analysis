@@ -17,6 +17,10 @@ from sklearn.metrics import (
     precision_score, f1_score
 )
 import shap
+import os
+
+os.makedirs("results", exist_ok=True)
+
 
 pd.set_option('display.max_columns', None)
 pd.set_option('display.width', None)
@@ -103,6 +107,12 @@ print("="*70)
 print(classification_report(y_test, y_pred, digits=4))
 print(f"ROC AUC Score: {roc_auc_score(y_test, y_prob):.4f}")
 
+xgb_perf = pd.DataFrame({
+    "Metric": ["ROC_AUC"],
+    "Value": [roc_auc_score(y_test, y_prob)]
+})
+xgb_perf.to_csv("results/xgb_performance.csv", index=False)
+
 
 # =============================================================================
 # 4.7 SHAP EXPLANATIONS
@@ -115,11 +125,13 @@ plt.figure(figsize=(10, 6))
 shap.summary_plot(shap_values, X_test, plot_type="bar", max_display=10, show=False)
 plt.title("Feature Importance (SHAP) – Drivers of Crash Alerts")
 plt.tight_layout()
+plt.savefig("results/shap_feature_importance_bar.png", dpi=200)
 plt.show()
 
 shap.summary_plot(shap_values, X_test, show=False)
 plt.title("SHAP Values – Impact Direction on Crash Probability")
 plt.tight_layout()
+plt.savefig("results/shap_summary_beeswarm.png", dpi=200)
 plt.show()
 
 
@@ -138,6 +150,7 @@ print("Average Daily Returns on Predicted Crash Days (2020–2025)")
 print("="*70)
 print(safe_haven_returns.round(6).to_string())
 print("="*70)
+safe_haven_returns.to_csv("results/xgb_safehaven_returns.csv")
 
 print("\nConclusion:")
 print(f"• Gold   : +{safe_haven_returns['Gold_Return']*100:5.3f}% → Strong safe-haven")
@@ -184,6 +197,7 @@ rf_safe_haven = df.loc[rf_crash_days, [
 
 print("\nSafe-haven returns on Random Forest predicted crash days:")
 print(rf_safe_haven.round(6))
+rf_safe_haven.to_csv("results/rf_safehaven_returns.csv")
 
 
 # High-confidence XGBoost predictions
@@ -232,7 +246,9 @@ plt.plot(range(1, 10), inertias, 'bo-')
 plt.title('Elbow Method')
 plt.xlabel('Number of Clusters')
 plt.ylabel('Inertia')
+plt.savefig("results/kmeans_elbow_method.png", dpi=200)
 plt.show()
+
 
 # k=3 clusters
 kmeans_model = KMeans(n_clusters=3, random_state=42, n_init=10)
@@ -260,7 +276,9 @@ plt.xlabel(f'PC1 ({pca.explained_variance_ratio_[0]:.1%} variance)')
 plt.ylabel(f'PC2 ({pca.explained_variance_ratio_[1]:.1%} variance)')
 plt.colorbar(label='Crisis type')
 plt.grid(True, alpha=0.3)
+plt.savefig("results/kmeans_pca_clusters.png", dpi=200)
 plt.show()
+
 
 
 # =============================================================================
@@ -400,6 +418,7 @@ else:
 
 print("\n=== LSTM Safe-Haven Results ===")
 print(safe_lstm.round(4))
+safe_lstm.to_csv("results/lstm_safehaven_returns.csv")
 
 
 # =============================================================================
@@ -471,6 +490,7 @@ results = pd.DataFrame({
 
 print("\n==================== MODEL BENCHMARK ====================\n")
 print(results.round(4).to_string(index=False))
+results.to_csv("results/model_comparison.csv", index=False)
 
 # Visualization
 plt.figure(figsize=(8, 5))
@@ -479,4 +499,5 @@ plt.title("Crash Detection Recall — Model Comparison", fontsize=14)
 plt.ylabel("Recall (0 → 1)")
 plt.grid(axis='y', linestyle='--', alpha=0.4)
 plt.ylim(0, 1)
+plt.savefig("results/model_comparison_recall.png", dpi=200)
 plt.show()

@@ -1,5 +1,3 @@
-
-
 # =============================================================================
 # MACHINE LEARNING – XGBoost Crash Prediction & Safe-Haven Analysis
 # =============================================================================
@@ -14,7 +12,10 @@ import seaborn as sns
 plt.style.use('seaborn-v0_8')
 
 from xgboost import XGBClassifier
-from sklearn.metrics import classification_report, roc_auc_score, recall_score
+from sklearn.metrics import (
+    classification_report, roc_auc_score, recall_score,
+    precision_score, f1_score
+)
 import shap
 
 pd.set_option('display.max_columns', None)
@@ -27,7 +28,6 @@ pd.set_option('display.expand_frame_repr', True)
 # =============================================================================
 
 df = pd.read_csv("data/merged_daily_returns.csv", parse_dates=['Date']).set_index('Date')
-
 
 # =============================================================================
 # 4.2 FEATURE ENGINEERING
@@ -168,6 +168,7 @@ rf = RandomForestClassifier(
 
 rf.fit(X_train, y_train)
 rf_pred = rf.predict(X_test)
+rf_prob = rf.predict_proba(X_test)[:, 1]
 
 rf_recall = recall_score(y_test, rf_pred)
 xgb_recall = recall_score(y_test, y_pred)
@@ -259,4 +260,223 @@ plt.xlabel(f'PC1 ({pca.explained_variance_ratio_[0]:.1%} variance)')
 plt.ylabel(f'PC2 ({pca.explained_variance_ratio_[1]:.1%} variance)')
 plt.colorbar(label='Crisis type')
 plt.grid(True, alpha=0.3)
+plt.show()
+
+
+# =============================================================================
+# 7. LSTM — Deep Learning Model for Crash Prediction
+# =============================================================================
+
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import LSTM, Dense, Dropout
+from sklearn.preprocessing import RobustScaler
+from sklearn.metrics import recall_score, precision_score, f1_score, roc_auc_score
+
+print("\n====================== 7. LSTM TRAINING ======================\n")
+
+
+# =============================================================================
+# 7.1 LSTM FEATURES (Same Inputs as XGBoost & RandomForest)
+# =============================================================================
+# Ensures fair benchmarking between classical ML models and deep learning.
+
+lstm_features = [
+    'VIX', 'VIX_Change_1d', 'VIX_Change_3d', 'VIX_Change_5d', 'VIX_High',
+    'Gold_Return', 'Dollar_Index_Return', 'US10Y_Return',
+    'SP500_mom_5d', 'SP500_mom_10d'
+]
+
+X_lstm = df[lstm_features].values
+y_lstm = df["is_crash"].values
+
+
+# =============================================================================
+# 7.2 TRAIN/TEST SPLIT — Same as XGBoost & RandomForest
+# =============================================================================
+# Ensures perfect out-of-sample comparability.
+
+split = len(X_train)  # identical time split
+
+X_train_lstm = X_lstm[:split]
+X_test_lstm  = X_lstm[split:]
+y_train_lstm = y_lstm[:split]
+y_test_lstm  = y_lstm[split:]
+
+
+# =============================================================================
+# 7.3 SCALING (RobustScaler — stable to outliers)
+# =============================================================================
+
+scaler_lstm = RobustScaler()
+X_train_lstm = scaler_lstm.fit_transform(X_train_lstm)
+X_test_lstm  = scaler_lstm.transform(X_test_lstm)
+
+
+# =============================================================================
+# 7.4 SEQUENCE GENERATION (Rolling Window of 60 Days)
+# =============================================================================
+# LSTM requires 3D input: [samples, time_steps, features]
+
+SEQ_LEN = 60
+
+def build_sequences(X, y, seq_len=SEQ_LEN):
+    Xs, ys = [], []
+    for i in range(seq_len, len(X)):
+        Xs.append(X[i-seq_len:i])
+        ys.append(y[i])
+    return np.array(Xs), np.array(ys)
+
+X_train_seq, y_train_seq = build_sequences(X_train_lstm, y_train_lstm)
+X_test_seq,  y_test_seq  = build_sequences(X_test_lstm,  y_test_lstm)
+
+print(f"Train LSTM sequences : {X_train_seq.shape}")
+print(f"Test  LSTM sequences : {X_test_seq.shape}")
+
+
+# =============================================================================
+# 7.5 LSTM MODEL ARCHITECTURE
+# =============================================================================
+# Robust, simple architecture for noisy financial time series.
+
+tf.random.set_seed(42)
+
+model = Sequential([
+    LSTM(64, return_sequences=True, input_shape=(SEQ_LEN, len(lstm_features))),
+    Dropout(0.2),
+
+    LSTM(32),
+    Dropout(0.2),
+
+    Dense(16, activation="relu"),
+    Dense(1, activation="sigmoid")
+])
+
+model.compile(
+    optimizer=tf.keras.optimizers.Adam(0.0007),
+    loss="binary_crossentropy",
+    metrics=["AUC"]
+)
+
+history = model.fit(
+    X_train_seq, y_train_seq,
+    epochs=25,
+    batch_size=32,
+    validation_split=0.2,
+    callbacks=[tf.keras.callbacks.EarlyStopping(patience=5, restore_best_weights=True)],
+    verbose=1
+)
+
+
+# =============================================================================
+# 7.6 LSTM PREDICTION
+# =============================================================================
+# Crash classification = Top 10% highest predicted probabilities.
+
+proba_lstm = model.predict(X_test_seq).flatten()
+
+threshold = np.percentile(proba_lstm, 90)
+pred_lstm = (proba_lstm >= threshold).astype(int)
+
+print(f"\nNumber of crashes predicted by LSTM : {pred_lstm.sum()}")
+
+
+# =============================================================================
+# 7.7 SAFE-HAVEN PERFORMANCE ON LSTM PREDICTED CRASH DAYS
+# =============================================================================
+
+test_dates_lstm = df.index[split + SEQ_LEN:][pred_lstm == 1]
+
+if len(test_dates_lstm) > 0:
+    safe_lstm = df.loc[test_dates_lstm, [
+        "Gold_Return", "Dollar_Index_Return", "US10Y_Return", "SP500_Return"
+    ]].mean() * 100
+else:
+    safe_lstm = pd.Series(
+        [np.nan]*4,
+        index=["Gold_Return", "Dollar_Index_Return", "US10Y_Return", "SP500_Return"]
+    )
+
+print("\n=== LSTM Safe-Haven Results ===")
+print(safe_lstm.round(4))
+
+
+# =============================================================================
+# 7.8 LSTM PERFORMANCE METRICS
+# =============================================================================
+
+lstm_recall    = recall_score(y_test_seq, pred_lstm)
+lstm_precision = precision_score(y_test_seq, pred_lstm, zero_division=0)
+lstm_f1        = f1_score(y_test_seq, pred_lstm, zero_division=0)
+lstm_auc       = roc_auc_score(y_test_seq, proba_lstm)
+
+print("\n=== Performance LSTM ===")
+print(f"Recall (crash)   : {lstm_recall:.4f}")
+print(f"Precision (crash): {lstm_precision:.4f}")
+print(f"F1-score         : {lstm_f1:.4f}")
+print(f"ROC-AUC          : {lstm_auc:.4f}")
+
+
+# =============================================================================
+# 8. FINAL MODEL COMPARISON (XGBoost vs RandomForest vs LSTM)
+# =============================================================================
+
+print("\n==============================================================")
+print("                FINAL MODEL COMPARISON")
+print("==============================================================\n")
+
+# Align sequences length with LSTM window
+y_test_aligned = y_test[-len(y_test_seq):]
+
+xgb_pred_aligned = y_pred[-len(y_test_seq):]
+xgb_prob_aligned = y_prob[-len(y_test_seq):]
+
+rf_pred_aligned  = rf_pred[-len(y_test_seq):]
+rf_prob_aligned  = rf_prob[-len(y_test_seq):]
+
+models = ["XGBoost", "Random Forest", "LSTM"]
+
+recalls = [
+    recall_score(y_test_aligned, xgb_pred_aligned),
+    recall_score(y_test_aligned, rf_pred_aligned),
+    lstm_recall
+]
+
+precisions = [
+    precision_score(y_test_aligned, xgb_pred_aligned),
+    precision_score(y_test_aligned, rf_pred_aligned),
+    lstm_precision
+]
+
+f1s = [
+    f1_score(y_test_aligned, xgb_pred_aligned),
+    f1_score(y_test_aligned, rf_pred_aligned),
+    lstm_f1
+]
+
+aucs = [
+    roc_auc_score(y_test_aligned, xgb_prob_aligned),
+    roc_auc_score(y_test_aligned, rf_prob_aligned),
+    lstm_auc
+]
+
+results = pd.DataFrame({
+    "Model": models,
+    "Recall Crash": recalls,
+    "Precision": precisions,
+    "F1-score": f1s,
+    "ROC-AUC": aucs
+})
+
+print("\n==================== MODEL BENCHMARK ====================\n")
+print(results.round(4).to_string(index=False))
+
+# Visualization
+plt.figure(figsize=(8, 5))
+plt.bar(models, recalls, color=["#1f77b4", "#ff7f0e", "#2ca02c"])
+plt.title("Crash Detection Recall — Model Comparison", fontsize=14)
+plt.ylabel("Recall (0 → 1)")
+plt.grid(axis='y', linestyle='--', alpha=0.4)
+plt.ylim(0, 1)
 plt.show()

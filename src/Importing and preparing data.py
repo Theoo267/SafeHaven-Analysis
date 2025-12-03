@@ -24,7 +24,6 @@ start = datetime.datetime(2000, 9, 1)
 end   = datetime.datetime(2025, 9, 1)
 
 
-
 # ===============================================================
 # 1) DOWNLOAD & SAVE RAW FINANCIAL DATA (Yahoo Finance)
 # ===============================================================
@@ -94,7 +93,6 @@ tnx.to_csv("data/us10y_2000_2025.csv", index=False)
 print("✅ US 10Y Yield data recorded : data/us10y_2000_2025.csv")
 
 
-
 # ===============================================================
 # 2) GRAPHICAL REPRESENTATION OF THE 5 SERIES
 # ===============================================================
@@ -157,7 +155,6 @@ plt.tight_layout(rect=[0, 0, 1, 0.96])
 plt.show()
 
 
-
 # ===============================================================
 # 3) MERGING ALL DAILY SERIES INTO ONE MASTER FILE
 # ===============================================================
@@ -207,7 +204,6 @@ print(merged.head())
 # Save merged dataset
 merged.to_csv("data/merged_daily_data.csv", index=False)
 print("\n🎉 Merged file saved : data/merged_daily_data.csv")
-
 
 
 # ===============================================================

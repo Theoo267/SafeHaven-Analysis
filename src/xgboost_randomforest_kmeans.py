@@ -1,5 +1,5 @@
 # =============================================================================
-# MACHINE LEARNING – XGBoost Crash Prediction & Safe-Haven Analysis
+# MACHINE LEARNING
 # =============================================================================
 
 import warnings

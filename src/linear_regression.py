@@ -67,7 +67,7 @@ global_reg_table = pd.DataFrame(
     columns=["Asset", "Beta_SP500", "Pvalue_SP500", "R_squared"]
 )
 
-print("\nGLOBAL REGRESSION — Hedge Test (Corrected)\n")
+print("\nGLOBAL REGRESSION — Hedge Test\n")
 print(global_reg_table.round(4))
 global_reg_table.to_csv("results/global_regression_table.csv", index=False)
 

@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f112a34-bfde-4ff3-a628-88e38e676b13" name="Changes" comment="création and filling the results file" />
+    <list default="true" id="4f112a34-bfde-4ff3-a628-88e38e676b13" name="Changes" comment="add the code of main.py">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/lstm_safehaven_returns.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/lstm_safehaven_returns.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_comparison.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/model_comparison.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/model_comparison_recall.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/model_comparison_recall.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/shap_summary_beeswarm.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/shap_summary_beeswarm.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linear_regression.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/linear_regression.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xgboost_randomforest_kmeans.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/xgboost_randomforest_kmeans.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,6 +62,11 @@
     "Python.Linear Regression.executor": "Run",
     "Python.XGBoost, Random Forest & K-Means.executor": "Run",
     "Python.data Analysis Linear Regression.executor": "Run",
+    "Python.global_analysis.executor": "Run",
+    "Python.importing_and_preparing_data.executor": "Run",
+    "Python.linear_regression.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.xgboost_randomforest_kmeans.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
@@ -72,8 +86,8 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Linear Regression">
-    <configuration name="Global analysis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.xgboost_randomforest_kmeans">
+    <configuration name="global_analysis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SafeHavenAnalysis-daily" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -87,7 +101,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Global analysis.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/global_analysis.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -96,7 +110,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Importing and preparing data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="importing_and_preparing_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SafeHavenAnalysis-daily" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -110,7 +124,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Importing and preparing data.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/importing_and_preparing_data.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -119,7 +133,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Linear Regression" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="linear_regression" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SafeHavenAnalysis-daily" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -133,7 +147,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Linear Regression.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/linear_regression.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -142,7 +156,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="XGBoost, Random Forest &amp; K-Means" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SafeHavenAnalysis-daily" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -156,7 +170,30 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/XGBoost, Random Forest &amp; K-Means.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="xgboost_randomforest_kmeans" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SafeHavenAnalysis-daily" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/xgboost_randomforest_kmeans.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -167,10 +204,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Linear Regression" />
-        <item itemvalue="Python.XGBoost, Random Forest &amp; K-Means" />
-        <item itemvalue="Python.Global analysis" />
-        <item itemvalue="Python.Importing and preparing data" />
+        <item itemvalue="Python.xgboost_randomforest_kmeans" />
+        <item itemvalue="Python.global_analysis" />
+        <item itemvalue="Python.linear_regression" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.importing_and_preparing_data" />
       </list>
     </recent_temporary>
   </component>
@@ -192,7 +230,7 @@
       <updated>1763889083068</updated>
       <workItem from="1763889084233" duration="38254000" />
       <workItem from="1764077030328" duration="14016000" />
-      <workItem from="1764146957935" duration="52885000" />
+      <workItem from="1764146957935" duration="133494000" />
     </task>
     <task id="LOCAL-00001" summary="Update README structure and test commit">
       <option name="closed" value="true" />
@@ -298,7 +336,47 @@
       <option name="project" value="LOCAL" />
       <updated>1764760824309</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="complete the requirements file">
+      <option name="closed" value="true" />
+      <created>1764761112471</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1764761112471</updated>
+    </task>
+    <task id="LOCAL-00015" summary="table and plot of the results file">
+      <option name="closed" value="true" />
+      <created>1764761187710</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1764761187710</updated>
+    </task>
+    <task id="LOCAL-00016" summary="complete the AI usage file">
+      <option name="closed" value="true" />
+      <created>1764761850013</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1764761850013</updated>
+    </task>
+    <task id="LOCAL-00017" summary="rename the document to accomplish the main task">
+      <option name="closed" value="true" />
+      <created>1765129597373</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1765129597374</updated>
+    </task>
+    <task id="LOCAL-00018" summary="add the code of main.py">
+      <option name="closed" value="true" />
+      <created>1765183273060</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1765183273060</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,12 +394,18 @@
     <MESSAGE value="create new files" />
     <MESSAGE value="adding LSTM" />
     <MESSAGE value="création and filling the results file" />
-    <option name="LAST_COMMIT_MESSAGE" value="création and filling the results file" />
+    <MESSAGE value="complete the requirements file" />
+    <MESSAGE value="table and plot of the results file" />
+    <MESSAGE value="complete the AI usage file" />
+    <MESSAGE value="rename the document to accomplish the main task" />
+    <MESSAGE value="add the code of main.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="add the code of main.py" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$XGBoost__Random_Forest___K_Means.coverage" NAME="XGBoost, Random Forest &amp; K-Means Coverage Results" MODIFIED="1764760108955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$Linear_Regression.coverage" NAME="Linear Regression Coverage Results" MODIFIED="1764760454515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$Importing_and_preparing_data.coverage" NAME="Importing and preparing data Coverage Results" MODIFIED="1764759812543" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$data_Analysis_Linear_Regression.coverage" NAME="Global analysis Coverage Results" MODIFIED="1764759889447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$Linear_Regression.coverage" NAME="linear_regression Coverage Results" MODIFIED="1766052761444" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$XGBoost__Random_Forest___K_Means.coverage" NAME="xgboost_randomforest_kmeans Coverage Results" MODIFIED="1766059771522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$Importing_and_preparing_data.coverage" NAME="importing_and_preparing_data Coverage Results" MODIFIED="1765787502841" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$main.coverage" NAME="main Coverage Results" MODIFIED="1765787651506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$data_Analysis_Linear_Regression.coverage" NAME="global_analysis Coverage Results" MODIFIED="1766059182978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

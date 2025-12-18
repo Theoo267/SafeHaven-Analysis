@@ -162,56 +162,53 @@ print("\nModel successfully identifies safe-haven assets during extreme market s
 
 
 # =============================================================================
-# 5. RANDOM FOREST – ROBUSTNESS CHECK
+# 5. RANDOM FOREST MODEL
 # =============================================================================
 
 from sklearn.ensemble import RandomForestClassifier
 
 print("\n" + "="*70)
-print("COMPARATIVE MODEL PERFORMANCE & CONSISTENCY CHECK")
+print("Random Forest Performance on 2020–2025 (Extreme Crash Prediction)")
 print("="*70)
 
-rf = RandomForestClassifier(
+rf_model = RandomForestClassifier(
     n_estimators=500,
     max_depth=None,
-    class_weight='balanced',
+    min_samples_leaf=1,
+    class_weight="balanced",
     random_state=42,
     n_jobs=-1
 )
 
-rf.fit(X_train, y_train)
-rf_pred = rf.predict(X_test)
-rf_prob = rf.predict_proba(X_test)[:, 1]
+rf_model.fit(X_train, y_train)
 
-rf_recall = recall_score(y_test, rf_pred)
-xgb_recall = recall_score(y_test, y_pred)
+rf_pred = rf_model.predict(X_test)
+rf_prob = rf_model.predict_proba(X_test)[:, 1]
 
-print(f"Random Forest Recall on crash days : {rf_recall:.4f}")
-print(f"XGBoost       Recall on crash days : {xgb_recall:.4f}")
+# PERFORMANCE METRICS
+print(classification_report(y_test, rf_pred, digits=4))
+print(f"ROC AUC Score: {roc_auc_score(y_test, rf_prob):.4f}")
 
-rf_crash_days = X_test.index[rf_pred == 1]
+rf_perf = pd.DataFrame({
+    "Metric": ["ROC_AUC"],
+    "Value": [roc_auc_score(y_test, rf_prob)]
+})
+rf_perf.to_csv("results/rf_performance.csv", index=False)
 
-rf_safe_haven = df.loc[rf_crash_days, [
+# SAFE-HAVEN PERFORMANCE ON RANDOM FOREST PREDICTED CRASH DAYS
+rf_predicted_crash_days = X_test.index[rf_pred == 1]
+
+rf_safe_haven = df.loc[rf_predicted_crash_days, [
     'Gold_Return', 'Dollar_Index_Return', 'US10Y_Return', 'SP500_Return'
 ]].mean()
 
-print("\nSafe-haven returns on Random Forest predicted crash days:")
-print(rf_safe_haven.round(6))
+print("\n" + "="*70)
+print("Average Daily Returns on RF Predicted Crash Days (2020–2025)")
+print("="*70)
+print(rf_safe_haven.round(6).to_string())
+print("="*70)
+
 rf_safe_haven.to_csv("results/rf_safehaven_returns.csv")
-
-
-# High-confidence XGBoost predictions
-high_conf = y_prob > 0.70
-high_conf_days = X_test.index[high_conf]
-
-if len(high_conf_days) >= 5:
-    high_conf_ret = df.loc[high_conf_days, [
-        'Gold_Return', 'Dollar_Index_Return', 'US10Y_Return', 'SP500_Return'
-    ]].mean()
-
-    print(f"\nHigh-confidence XGBoost predictions (>70%, n={len(high_conf_days)} days):")
-    print(high_conf_ret.round(6))
-
 
 # =============================================================================
 # 6. K-MEANS CLUSTERING – UNSUPERVISED STRESS TYPOLOGY
@@ -222,7 +219,7 @@ from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 
 print("\n" + "="*80)
-print("UNSUPERVISED ANALYSIS: Clustering of Extreme Market Stress Days")
+print("UNSUPERVISED ANALYSIS: K-Means Clustering of Extreme Market Stress Days")
 print("="*80)
 
 extreme_days = df[df['is_crash'] == 1].copy()
@@ -278,8 +275,6 @@ plt.colorbar(label='Crisis type')
 plt.grid(True, alpha=0.3)
 plt.savefig("results/kmeans_pca_clusters.png", dpi=200)
 plt.show()
-
-
 
 # =============================================================================
 # 7. LSTM — Deep Learning Model for Crash Prediction

@@ -1,6 +1,6 @@
-# Capstone Project Proposal – Comparison of the Behavior of Safe-Haven Assets
-
 → **This document reflects the initial project proposal. During the course of the project, the research question and methodological approach were adjusted and expanded to better align with the objectives.**
+
+# Capstone Project Proposal – Comparison of the Behavior of Safe-Haven Assets
 
 Project title: Comparison of the behavior of safe-haven assets in response to financial market volatility.
 

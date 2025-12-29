@@ -5,7 +5,7 @@ scripts_to_run = [
     "src/importing_and_preparing_data.py",
     "src/global_analysis.py",
     "src/linear_regression.py",
-    "src/xgboost_randomforest_kmeans.py"
+    "src/ml_crash_detection_and_clustering.py"
 ]
 
 print("\n============== SAFE HAVEN FULL PIPELINE EXECUTION ==============\n")

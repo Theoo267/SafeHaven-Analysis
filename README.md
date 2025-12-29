@@ -1,5 +1,7 @@
 # Hedge and Safe-Haven Assets (2000–2025)
 
+Written by Théo Bubendorff – MSc. in Finance, University of Lausanne (2025–2026)
+
 ---
 
 ## Research Question

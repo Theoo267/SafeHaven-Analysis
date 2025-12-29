@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f112a34-bfde-4ff3-a628-88e38e676b13" name="Changes" comment="add the code of main.py">
+    <list default="true" id="4f112a34-bfde-4ff3-a628-88e38e676b13" name="Changes" comment="update of the markdown file">
+      <change beforePath="$PROJECT_DIR$/.idea/SafeHavenAnalysis-daily.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SafeHavenAnalysis-daily.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROPOSAL.md" beforeDir="false" afterPath="$PROJECT_DIR$/PROPOSAL.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results/lstm_safehaven_returns.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/lstm_safehaven_returns.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results/model_comparison.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/model_comparison.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/model_comparison_recall.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/model_comparison_recall.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results/shap_summary_beeswarm.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/shap_summary_beeswarm.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/linear_regression.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/linear_regression.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/xgboost_randomforest_kmeans.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/xgboost_randomforest_kmeans.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xgboost_randomforest_kmeans.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ml_crash_detection_and_clustering.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,30 +57,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.Global analysis.executor": "Run",
-    "Python.Importing and preparing data.executor": "Run",
-    "Python.Linear Regression.executor": "Run",
-    "Python.XGBoost, Random Forest & K-Means.executor": "Run",
-    "Python.data Analysis Linear Regression.executor": "Run",
-    "Python.global_analysis.executor": "Run",
-    "Python.importing_and_preparing_data.executor": "Run",
-    "Python.linear_regression.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.xgboost_randomforest_kmeans.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.Global analysis.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Importing and preparing data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Linear Regression.executor&quot;: &quot;Run&quot;,
+    &quot;Python.XGBoost, Random Forest &amp; K-Means.executor&quot;: &quot;Run&quot;,
+    &quot;Python.data Analysis Linear Regression.executor&quot;: &quot;Run&quot;,
+    &quot;Python.global_analysis.executor&quot;: &quot;Run&quot;,
+    &quot;Python.importing_and_preparing_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.linear_regression.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.xgboost_randomforest_kmeans.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/notebooks" />
@@ -86,7 +88,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.xgboost_randomforest_kmeans">
+  <component name="RunManager" selected="Python.main">
     <configuration name="global_analysis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SafeHavenAnalysis-daily" />
       <option name="ENV_FILES" value="" />
@@ -179,7 +181,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="xgboost_randomforest_kmeans" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="ml_crash_detection_and_clustering" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SafeHavenAnalysis-daily" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -193,7 +195,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/xgboost_randomforest_kmeans.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/ml_crash_detection_and_clustering.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -204,11 +206,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.xgboost_randomforest_kmeans" />
-        <item itemvalue="Python.global_analysis" />
-        <item itemvalue="Python.linear_regression" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.global_analysis" />
         <item itemvalue="Python.importing_and_preparing_data" />
+        <item itemvalue="Python.ml_crash_detection_and_clustering" />
+        <item itemvalue="Python.linear_regression" />
       </list>
     </recent_temporary>
   </component>
@@ -230,7 +232,10 @@
       <updated>1763889083068</updated>
       <workItem from="1763889084233" duration="38254000" />
       <workItem from="1764077030328" duration="14016000" />
-      <workItem from="1764146957935" duration="133494000" />
+      <workItem from="1764146957935" duration="134336000" />
+      <workItem from="1766068428368" duration="49585000" />
+      <workItem from="1766847317063" duration="1962000" />
+      <workItem from="1766849296568" duration="37858000" />
     </task>
     <task id="LOCAL-00001" summary="Update README structure and test commit">
       <option name="closed" value="true" />
@@ -376,7 +381,23 @@
       <option name="project" value="LOCAL" />
       <updated>1765183273060</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="updating of different documents">
+      <option name="closed" value="true" />
+      <created>1766060527800</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1766060527800</updated>
+    </task>
+    <task id="LOCAL-00020" summary="update of the markdown file">
+      <option name="closed" value="true" />
+      <created>1766872672035</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1766872672035</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -399,13 +420,17 @@
     <MESSAGE value="complete the AI usage file" />
     <MESSAGE value="rename the document to accomplish the main task" />
     <MESSAGE value="add the code of main.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="add the code of main.py" />
+    <MESSAGE value="updating of different documents" />
+    <MESSAGE value="update of the markdown file" />
+    <option name="LAST_COMMIT_MESSAGE" value="update of the markdown file" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$Linear_Regression.coverage" NAME="linear_regression Coverage Results" MODIFIED="1766052761444" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$XGBoost__Random_Forest___K_Means.coverage" NAME="xgboost_randomforest_kmeans Coverage Results" MODIFIED="1766059771522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$global_analysis.coverage" NAME="global_analysis Coverage Results" MODIFIED="1766848082356" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$Importing_and_preparing_data.coverage" NAME="importing_and_preparing_data Coverage Results" MODIFIED="1765787502841" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$main.coverage" NAME="main Coverage Results" MODIFIED="1765787651506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$main.coverage" NAME="main Coverage Results" MODIFIED="1767019348776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$data_Analysis_Linear_Regression.coverage" NAME="global_analysis Coverage Results" MODIFIED="1766059182978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SafeHavenAnalysis_daily$importing_and_preparing_data.coverage" NAME="importing_and_preparing_data Coverage Results" MODIFIED="1766068591169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

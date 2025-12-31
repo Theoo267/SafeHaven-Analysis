@@ -117,7 +117,7 @@ for asset_name, y_col in models.items():
             "R_squared": round(model.rsquared, 4)
         })
 
-# Final table identical to your structure
+# Final table
 crisis_reg_table = pd.DataFrame(
     rows,
     columns=["Asset", "Crisis", "Beta_SP500", "Pvalue_SP500", "R_squared"]
@@ -227,7 +227,7 @@ plt.legend(fontsize=12)
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.savefig("results/scatter_gold_vs_sp500.png", dpi=200)
-plt.show()
+plt.close()
 
 
 # -------------------------------------------------
@@ -257,7 +257,7 @@ plt.legend(fontsize=12)
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.savefig("results/scatter_dxy_vs_sp500.png", dpi=200)
-plt.show()
+plt.close()
 
 
 # -------------------------------------------------
@@ -287,7 +287,7 @@ plt.legend(fontsize=12)
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
 plt.savefig("results/scatter_us10y_vs_sp500.png", dpi=200)
-plt.show()
+plt.close()
 
 
 # ===============================================================

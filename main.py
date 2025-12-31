@@ -11,9 +11,9 @@ scripts_to_run = [
 print("\n============== SAFE HAVEN FULL PIPELINE EXECUTION ==============\n")
 
 for script in scripts_to_run:
-    print(f"\n➡️  Running script: {script}")
+    print(f"\n Running script: {script}")
     runpy.run_path(script)
-    print(f"✔️  Finished: {script}")
+    print(f" Finished: {script}")
     time.sleep(1)
 
 print("\n======================= PIPELINE COMPLETE =======================\n")

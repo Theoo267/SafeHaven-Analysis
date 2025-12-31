@@ -154,11 +154,11 @@ for (title, path), ax in zip(datasets, axes.flat):
 
 plt.tight_layout(rect=[0, 0, 1, 0.96])
 plt.savefig("results/economic_indicators_2000_2025.png", dpi=200)
-plt.show()
+plt.close()
 
 
 # ===============================================================
-# 3) MERGING ALL DAILY SERIES INTO ONE MASTER FILE
+# 3) MERGING ALL DAILY SERIES INTO ONE FILE
 # ===============================================================
 
 # Generic function for loading a daily CSV file

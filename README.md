@@ -46,8 +46,14 @@ Main processed file used in the pipeline:
 #### Create environment -> ⚠️ Requires Python 3.12 (not compatible with 3.13)
 python3.12 -m venv .venv
 
+(Optional) If a previous virtual environment exists:
+rm -rf .venv
+
 #### Activate (Mac/Linux)
 source .venv/bin/activate
+
+#### Activate (Windows)
+.venv\Scripts\activate
 
 #### Install dependencies
 pip install -r requirements.txt
@@ -79,6 +85,7 @@ SafeHavenAnalysis/
 │   └── ml_crash_detection_and_clustering.py
 ├── main.py
 ├── requirements.txt
+├── PROPOSAL.md
 ├── AI_Usage.md
 └── README.md
 ``` 
@@ -86,7 +93,7 @@ SafeHavenAnalysis/
 
 ## Results
 
-The analysis highlights heterogeneous safe-haven properties across assets, depending on market regimes and tail events:
+The analysis highlights heterogeneous hedge and safe-haven properties across assets, depending on market regimes and tail events:
 
 - **US Treasuries**: strongest hedge and most robust safe haven (strong protection in crises and deep tails).
 - **US Dollar (DXY)**: weak hedge on average but **systematic safe haven** during stress.

@@ -126,13 +126,13 @@ shap.summary_plot(shap_values, X_test, plot_type="bar", max_display=10, show=Fal
 plt.title("Feature Importance (SHAP) – Drivers of Crash Alerts")
 plt.tight_layout()
 plt.savefig("results/shap_feature_importance_bar.png", dpi=200)
-plt.show()
+plt.close()
 
 shap.summary_plot(shap_values, X_test, show=False)
 plt.title("SHAP Values – Impact Direction on Crash Probability")
 plt.tight_layout()
 plt.savefig("results/shap_summary_beeswarm.png", dpi=200)
-plt.show()
+plt.close()
 
 
 # =============================================================================
@@ -244,7 +244,7 @@ plt.title('Elbow Method')
 plt.xlabel('Number of Clusters')
 plt.ylabel('Inertia')
 plt.savefig("results/kmeans_elbow_method.png", dpi=200)
-plt.show()
+plt.close()
 
 
 # k=3 clusters
@@ -274,7 +274,7 @@ plt.ylabel(f'PC2 ({pca.explained_variance_ratio_[1]:.1%} variance)')
 plt.colorbar(label='Crisis type')
 plt.grid(True, alpha=0.3)
 plt.savefig("results/kmeans_pca_clusters.png", dpi=200)
-plt.show()
+plt.close()
 
 # =============================================================================
 # 7. LSTM — Deep Learning Model for Crash Prediction
@@ -328,9 +328,9 @@ X_test_lstm  = scaler_lstm.transform(X_test_lstm)
 
 
 # =============================================================================
-# 7.4 SEQUENCE GENERATION (Rolling Window of 60 Days)
+# 7.4 SEQUENCE GENERATION
 # =============================================================================
-# LSTM requires 3D input: [samples, time_steps, features]
+
 
 SEQ_LEN = 60
 
@@ -351,7 +351,7 @@ print(f"Test  LSTM sequences : {X_test_seq.shape}")
 # =============================================================================
 # 7.5 LSTM MODEL ARCHITECTURE
 # =============================================================================
-# Robust, simple architecture for noisy financial time series.
+
 
 tf.random.set_seed(42)
 
@@ -385,7 +385,7 @@ history = model.fit(
 # =============================================================================
 # 7.6 LSTM PREDICTION
 # =============================================================================
-# Crash classification = Top 10% highest predicted probabilities.
+
 
 proba_lstm = model.predict(X_test_seq).flatten()
 
@@ -495,4 +495,4 @@ plt.ylabel("Recall (0 → 1)")
 plt.grid(axis='y', linestyle='--', alpha=0.4)
 plt.ylim(0, 1)
 plt.savefig("results/model_comparison_recall.png", dpi=200)
-plt.show()
+plt.close()

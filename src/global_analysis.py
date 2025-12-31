@@ -49,7 +49,7 @@ plt.figure(figsize=(10,6))
 sns.heatmap(data[cols].corr(), annot=True, cmap="coolwarm", fmt=".2f")
 plt.title("Correlation Matrix (2000–2025)")
 plt.savefig("results/correlation_matrix.png", dpi=200)
-plt.show()
+plt.close()
 
 
 # ===============================================================
@@ -101,7 +101,7 @@ plt.ylabel("VIX Level")
 plt.legend(loc="upper left", fontsize=9)
 plt.grid(True)
 plt.savefig("results/vix_stress_detection.png", dpi=200)
-plt.show()
+plt.close()
 
 
 # ===============================================================
@@ -122,7 +122,7 @@ rows = []
 for crisis, (start, end) in crises.items():
     sub = returns.loc[start:end]
 
-    # Cumulative growth = (1+r1)*(1+r2)*... - 1
+    # Cumulative growth
     cum = (1 + sub[ret_cols]).prod() - 1
 
     # Daily volatility
@@ -157,7 +157,7 @@ print(crisis_summary.round(3).to_string())
 crisis_summary.to_csv("results/crisis_summary.csv")
 
 # ===============================================================
-# 4) CUMULATIVE GROWTH CHARTS (Gold + SP500 + DXY)
+# 4) CUMULATIVE GROWTH CHARTS
 # ===============================================================
 
 # Cumulative growth function
@@ -183,4 +183,4 @@ for ax, (crisis, (start, end)) in zip(axes, crises.items()):
 
 plt.tight_layout()
 plt.savefig("results/cumulative_growth_crises.png", dpi=200)
-plt.show()
+plt.close()
